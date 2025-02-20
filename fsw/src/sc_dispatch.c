@@ -86,7 +86,7 @@ bool SC_VerifyCmdLength(const CFE_MSG_Message_t *Msg, size_t ExpectedLength)
 void SC_ProcessRequest(const CFE_SB_Buffer_t *BufPtr)
 {
     CFE_SB_MsgId_t MessageID = CFE_SB_INVALID_MSG_ID;
-
+    char           timeBuf[CFE_TIME_PRINTED_STRING_SIZE];
     /* cast the packet header pointer on the packet buffer */
     CFE_MSG_GetMsgId(&BufPtr->Msg, &MessageID);
 
@@ -98,6 +98,9 @@ void SC_ProcessRequest(const CFE_SB_Buffer_t *BufPtr)
     switch (CFE_SB_MsgIdToValue(MessageID))
     {
         case SC_CMD_MID:
+            CFE_TIME_Print(timeBuf, SC_AppData.TimeRef.GetTime());
+            OS_printf("Current Time: %s\n", timeBuf);
+            // OS_printf("Command wakeup count for RTP: %d\n", SC_AppData.NextCmdTime[SC_Process_RTP]);
             /* request from the ground */
             SC_ProcessCommand(BufPtr);
             break;

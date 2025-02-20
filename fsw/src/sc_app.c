@@ -103,6 +103,7 @@ void SC_AppMain(void)
         }
         else if (Result == CFE_SB_TIME_OUT)
         {
+            OS_printf("We've entered CFE_SB_TIME_OUT in SC app\n");
             /* no action, but also no error */
         }
         else

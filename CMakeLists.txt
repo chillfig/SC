@@ -19,7 +19,6 @@ target_include_directories(sc PUBLIC fsw/inc)
 
 set(APP_TABLE_FILES
   fsw/tables/sc_rts001.c
-  fsw/tables/sc_ats1.c
   fsw/tables/sc_rts002.c
 )
 

@@ -57,6 +57,14 @@ typedef struct
     SC_NoopCmd_t        cmd2;
     SC_RtsEntryHeader_t hdr3;
     SC_NoopCmd_t        cmd3;
+    SC_RtsEntryHeader_t hdr4;
+    SC_NoopCmd_t        cmd4;
+    SC_RtsEntryHeader_t hdr5;
+    SC_NoopCmd_t        cmd5;
+    SC_RtsEntryHeader_t hdr6;
+    SC_NoopCmd_t        cmd6;
+    SC_RtsEntryHeader_t hdr7;
+    SC_NoopCmd_t        cmd7;
 } SC_RtsStruct002_t;
 
 /* Define the union to size the table correctly */
@@ -71,17 +79,33 @@ typedef union
 
 /* Used designated initializers to be verbose, modify as needed/desired */
 SC_RtsTable002_t SC_Rts002 = {
-    /* 1 */
-    .rts.hdr1.WakeupCount       = 0,
+    /* 0 */
+    .rts.hdr1.WakeupCount       = 1,
     .rts.cmd1.CommandHeader = CFE_MSG_CMD_HDR_INIT(SC_CMD_MID, SC_MEMBER_SIZE(cmd1), SC_NOOP_CC, SC_NOOP_CKSUM),
 
-    /* 2 */
-    .rts.hdr2.WakeupCount       = 5,
+    /* 1 */
+    .rts.hdr2.WakeupCount       = 1,
     .rts.cmd2.CommandHeader = CFE_MSG_CMD_HDR_INIT(SC_CMD_MID, SC_MEMBER_SIZE(cmd2), SC_NOOP_CC, SC_NOOP_CKSUM),
 
+    /* 2 */
+    .rts.hdr3.WakeupCount       = 1,
+    .rts.cmd3.CommandHeader = CFE_MSG_CMD_HDR_INIT(SC_CMD_MID, SC_MEMBER_SIZE(cmd3), SC_NOOP_CC, SC_NOOP_CKSUM),
+
     /* 3 */
-    .rts.hdr3.WakeupCount       = 5,
-    .rts.cmd3.CommandHeader = CFE_MSG_CMD_HDR_INIT(SC_CMD_MID, SC_MEMBER_SIZE(cmd3), SC_NOOP_CC, SC_NOOP_CKSUM)};
+    .rts.hdr4.WakeupCount       = 1,
+    .rts.cmd4.CommandHeader = CFE_MSG_CMD_HDR_INIT(SC_CMD_MID, SC_MEMBER_SIZE(cmd4), SC_NOOP_CC, SC_NOOP_CKSUM),
+
+    /* 4 */
+    .rts.hdr5.WakeupCount       = 1,
+    .rts.cmd5.CommandHeader = CFE_MSG_CMD_HDR_INIT(SC_CMD_MID, SC_MEMBER_SIZE(cmd5), SC_NOOP_CC, SC_NOOP_CKSUM),
+
+    /* 5 */
+    .rts.hdr6.WakeupCount       = 1,
+    .rts.cmd6.CommandHeader = CFE_MSG_CMD_HDR_INIT(SC_CMD_MID, SC_MEMBER_SIZE(cmd6), SC_NOOP_CC, SC_NOOP_CKSUM),
+
+    /* 6 */
+    .rts.hdr7.WakeupCount       = 1,
+    .rts.cmd7.CommandHeader = CFE_MSG_CMD_HDR_INIT(SC_CMD_MID, SC_MEMBER_SIZE(cmd7), SC_NOOP_CC, SC_NOOP_CKSUM)};
 
 /* Macro for table structure */
 CFE_TBL_FILEDEF(SC_Rts002, SC.RTS_TBL002, SC Example RTS_TBL002, sc_rts002.tbl)
